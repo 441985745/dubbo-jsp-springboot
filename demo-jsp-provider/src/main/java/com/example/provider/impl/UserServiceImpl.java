@@ -2,8 +2,11 @@ package com.example.provider.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
 
+import com.example.commoninterface.bean.User;
 import com.example.commoninterface.bean.UserAddress;
 import com.example.commoninterface.service.UserService;
+import com.example.provider.mapper.UserMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -12,6 +15,8 @@ import java.util.List;
 @Component
 @Service(version = "1.0.0") //注意,这个是dubbo的注解,不是spring的,暴露服务
 public class UserServiceImpl implements UserService {
+	@Autowired
+	UserMapper userMapper;
 
 	@Override
 	public List<UserAddress> getUserAddressList(String userId) {
@@ -27,5 +32,11 @@ public class UserServiceImpl implements UserService {
 //		}
 		return Arrays.asList(address1,address2);
 	}
+
+	@Override
+	public List<User> selectUser() {
+		return userMapper.selectUser();
+	}
+
 
 }

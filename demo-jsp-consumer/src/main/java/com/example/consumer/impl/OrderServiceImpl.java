@@ -1,6 +1,7 @@
 package com.example.consumer.impl;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.example.commoninterface.bean.User;
 import com.example.commoninterface.bean.UserAddress;
 import com.example.commoninterface.service.OrderService;
 import com.example.commoninterface.service.UserService;
@@ -33,6 +34,10 @@ public class OrderServiceImpl implements OrderService {
 		System.out.println("用户id："+userId);
 		List<UserAddress> list = userService.getUserAddressList(userId);
 		return list;
+	}
+
+	public List<User> selectUser(){
+		return userService.selectUser();
 	}
 
 }

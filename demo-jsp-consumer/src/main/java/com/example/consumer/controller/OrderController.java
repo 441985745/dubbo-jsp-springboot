@@ -26,4 +26,10 @@ public class OrderController {
 		model.addAttribute("test","test");
 		return "index";
 	}
+
+	@RequestMapping("/selectUser")
+	public String selectUser(Model model){
+		model.addAttribute("test",orderService.selectUser());
+		return "index";
+	}
 }

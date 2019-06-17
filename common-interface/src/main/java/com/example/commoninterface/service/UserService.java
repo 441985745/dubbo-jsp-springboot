@@ -1,5 +1,6 @@
 package com.example.commoninterface.service;
 
+import com.example.commoninterface.bean.User;
 import com.example.commoninterface.bean.UserAddress;
 
 import java.util.List;
@@ -17,5 +18,7 @@ public interface UserService {
 	 * @return
 	 */
 	public List<UserAddress> getUserAddressList(String userId);
+
+	public List<User> selectUser();
 
 }

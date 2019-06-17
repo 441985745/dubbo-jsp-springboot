@@ -49,6 +49,46 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
+<!-- mybatis依赖中引入了jdbc
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>-->
+
+        <!-- 引入druid依赖 -->
+        <!-- 此处的引用有两种 -->
+        <!-- 一种是直接引用druid包,另一种是引用starter方式 -->
+        <!-- 在此处我引用的是start包,为什么呢，因为方便呀... -->
+        <!-- 注:如果没有该包,application.properties/application.yml 中将不会出现关于druid的提示 -->
+        <!-- 注:如果直接引用druid包,需要手写一个DruidConfig配置类 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.1.14</version>
+        </dependency>
+
+        <!-- 通过如下命令,将oracle的驱动包安装到本地maven仓库中,这样可以通过mvn spring-boot:run命令来启动项目,如果
+         是引入jar包的形式,只能通过外置tomcat容器启动-->
+        <!-- mvn install:install-file -DgroupId=ojdbc -DartifactId=ojdbc -Dversion=6_g -Dpackaging=jar -Dfile=ojdbc6_g.jar -->
+        <dependency>
+            <groupId>ojdbc</groupId>
+            <artifactId>ojdbc</artifactId>
+            <version>6_g</version>
+        </dependency>
+
+
+        <!-- 整合mybatis -->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
 
     </dependencies>
 

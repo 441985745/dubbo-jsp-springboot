@@ -1,5 +1,6 @@
 package com.example.commoninterface.service.impl;
 
+import com.example.commoninterface.bean.User;
 import com.example.commoninterface.bean.UserAddress;
 import com.example.commoninterface.service.UserService;
 import org.springframework.util.StringUtils;
@@ -36,5 +37,10 @@ public class UserServiceStub implements UserService {
         }
 
         return null;
+    }
+
+    @Override
+    public List<User> selectUser() {
+        return userService.selectUser();
     }
 }
